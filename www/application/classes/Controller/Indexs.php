@@ -42,10 +42,24 @@
 		
 			$data = array();
 			$data[ 'current_page' ] = 'main';
-			$data[ 'products' ] = $this -> model -> getTopProducts(8);
 		
 			$this -> setParam('pagetitle', 'Главная');
 			$this -> showPage($this -> cName . 's/main', $data);	
+		}
+		
+		/**
+		 * Каталог
+		 */
+		public function action_catalog() {
+		
+			$this -> products = Model::factory('Products');
+		
+			$data = array();
+			$data[ 'current_page' ] = 'catalog';
+			$data[ 'products' ] = $this -> products -> getCatalog(8);
+		
+			$this -> setParam('pagetitle', 'Каталог');
+			$this -> showPage($this -> cName . 's/catalog', $data);	
 		}
 	} 
 

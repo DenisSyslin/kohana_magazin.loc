@@ -7,6 +7,14 @@
 			'action'     => 'index',
 		));
 
+	Route::set('widget', 'widget(/<controller>(/<action>(/<id>)))')
+		 -> defaults(array(
+			'directory'  => 'widget',
+			'controller' => 'LeftMenu',
+			'action'     => 'show',
+		));
+
+
 	Route::set('default', '(<controller>(/<action>(/<id>)))') -> defaults(array('controller' => 'Indexs','action' => 'index'));
 
 	

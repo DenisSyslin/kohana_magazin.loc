@@ -177,7 +177,7 @@
 		 * @param array  $data данные для шаблона
 		 */
 		protected function showPage($path, $data = array()) {
-		
+
 			View::set_global('TMP_PATH', self::TMP_PATH);
 			
 			$content = View::factory(self::TMP_PATH . '/' . $path, $data);
@@ -187,14 +187,17 @@
 
 			$footer = View::factory(self::TMP_PATH . '/block/footer');
 			
-			$html = $content;
+			$leftMenu  = Request::factory('widget/leftmenu')  -> execute();
+			$rightMenu = Request::factory('widget/rightMenu') -> execute();
 
 			// Set content template
 			//$this -> template -> set('menu', $menu);
 			$this -> template -> set('footer', $footer);
-			$this -> template -> set('content', $html);
+			$this -> template -> set('content', $content);
 			$this -> template -> set('scripts', $this -> scripts);
 			$this -> template -> set('styles',  $this -> styles);
+			$this -> template -> set('leftMenu', $leftMenu);
+			$this -> template -> set('rightMenu', $rightMenu);
 		}
 	} 
 
