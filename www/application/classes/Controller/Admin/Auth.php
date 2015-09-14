@@ -22,9 +22,6 @@
 		 * User Login Action
 		 */
 		public function action_login() {
-		
-			// create template
-			$template = View::factory(parent::TMP_PATH . '/admin/login');
 	 
 			// init errors array
 			$errors = array();
@@ -75,13 +72,14 @@
 				$errors = Arr::merge($errors, $post -> errors('messages'));
 			}
 	 
-			// set variables into login template
-			$template -> set('errors', $errors);
-	 
-			// set content into template
-			$this -> template -> set('pagetitle', 'Authorization');
-			$this -> template -> set('content', $template);
-			$this -> template -> set('TMP_PATH', parent::TMP_PATH);
+			$data = array();
+			$data[ 'current_page' ] = '';
+
+			$data[ 'errors' ]   = $errors;
+			$data[ 'TMP_PATH' ] =  parent::TMP_PATH;		
+		
+			$this -> setParam('pagetitle', 'Authorization');
+			$this -> showPage('admin/login', $data);	
 		}
 	 
 		/**

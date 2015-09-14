@@ -3,13 +3,13 @@
 	/**
 	 * Контроллер по умолчанию
 	 *
-	 * @name        Controller_Indexs
+	 * @name        Controller_Pages
 	 * @category    Classes
 	 * @subcategory Controller
 	 * @author      Суслин Денис 2015г. <programist1985@gmail.com>
 	 */
 	 
-	class Controller_Indexs extends Controller_Layout_SiteGRUD {
+	class Controller_Pages extends Controller_Layout_SiteGRUD {
 	
 		/**
 		 * Основная модель
@@ -23,7 +23,7 @@
 		 * @property string
 		 * @access protected
 		 */
-		protected $cName = 'index';
+		protected $cName = 'page';
 		
 		/**
 		 * Конструктор
@@ -63,5 +63,5 @@
 		}
 	} 
 
-    /* End of file Indexs.php */
-    /* Location: ./application/classes/Controller/Indexs.php */
+    /* End of file Pages.php */
+    /* Location: ./application/classes/Controller/Pages.php */

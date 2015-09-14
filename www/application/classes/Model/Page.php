@@ -142,6 +142,26 @@
 			
 			return FALSE;	
 		}
+
+		/**
+		 * Получить список топовых продуктов
+		 *
+		 * @param int $count количество 
+		 * @return array
+		 */
+		public function getTopProducts($count = 10) {
+			
+			return array(
+				array('name' => 'Товар 1', 'price' => 100),
+				array('name' => 'Товар 2', 'price' => 200),
+				array('name' => 'Товар 3', 'price' => 300),
+				array('name' => 'Товар 4', 'price' => 400),
+				array('name' => 'Товар 5', 'price' => 500),
+				array('name' => 'Товар 6', 'price' => 600),
+				array('name' => 'Товар 7', 'price' => 700),
+				array('name' => 'Товар 8', 'price' => 800),
+			);
+		}
 	} 
 
     /* End of file Page.php */

@@ -41,19 +41,27 @@
 		<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<section class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Меню</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<h1>
-						<a class="navbar-brand" href="/">
+					<a class="navbar-brand" href="<?php echo URL::site('/') ?>">
+						<div id="site-logo-wrap">
+							<img src="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/images/logo.png"/>
+						</div>
+						<h1>
 							<?php echo __(Config::getSiteParam('site_name')) ?>
-						</a>
-					</h1>	
+						</h1>	
+						<h2>	
+							<?php echo __(Config::getSiteParam('site_descr')) ?>
+						</h2>	
+						<div class="clearfix"></div>
+					</a>
+					<div class="clearfix"></div>
 				</div>
-				<?php echo isset($menu) ? $menu : '' ?>
+				<div id="basket-block">
+					<button type="button" class="btn btn-primary">
+						<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Корзина
+					</button>
+				</div>
+				<?php echo isset($topMenu) ? $topMenu : '' ?>
+				<div class="clearfix"></div>
 			</section>
 		</header>
 
@@ -66,7 +74,7 @@
 					<?php echo isset($content) ? $content : '' ?>
 				</div>
 				<aside class="col-lg-2 aside-right">
-					<?php echo $rightMenu; ?>
+					<?php echo $news; ?>
 				</aside>
 			</div>
 		</section> 

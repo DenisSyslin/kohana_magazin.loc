@@ -178,26 +178,26 @@
 		 */
 		protected function showPage($path, $data = array()) {
 
+			$current = '';
+			
+			if (!empty($data[ 'current_page' ])) {
+				
+				$current = $data[ 'current_page' ];
+			}
+						
 			View::set_global('TMP_PATH', self::TMP_PATH);
 			
 			$content = View::factory(self::TMP_PATH . '/' . $path, $data);
-
-			//$menu = View::factory(self::TMP_PATH . '/block/menu');
-			//$menu -> current = $data[ 'current_page' ];
-
-			$footer = View::factory(self::TMP_PATH . '/block/footer');
+			$footer  = View::factory(self::TMP_PATH . '/block/footer');
 			
-			$leftMenu  = Request::factory('widget/leftmenu')  -> execute();
-			$rightMenu = Request::factory('widget/rightMenu') -> execute();
+			$this -> template -> set('topMenu',  Request::factory('widget/topmenu/show/main') -> execute());
+			$this -> template -> set('leftMenu', Request::factory('widget/leftmenu') -> execute());
+			$this -> template -> set('news',     Request::factory('widget/news') -> execute());
 
-			// Set content template
-			//$this -> template -> set('menu', $menu);
-			$this -> template -> set('footer', $footer);
+			$this -> template -> set('footer',  $footer);
 			$this -> template -> set('content', $content);
 			$this -> template -> set('scripts', $this -> scripts);
 			$this -> template -> set('styles',  $this -> styles);
-			$this -> template -> set('leftMenu', $leftMenu);
-			$this -> template -> set('rightMenu', $rightMenu);
 		}
 	} 
 

@@ -26,5 +26,5 @@
 
     /* End of file LeftMenu.php */
     /* Location: ./application/classes/Controller/Widget/LeftMenu.php */
-	
+
 	

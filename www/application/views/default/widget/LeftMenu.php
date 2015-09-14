@@ -8,3 +8,13 @@
 		<?php endforeach; ?>
 	</ul>
 <?php endif; ?>
+
+<form class="form-signin">
+	<input type="text" class="form-control" placeholder="Email" required autofocus>
+	<input type="password" class="form-control" placeholder="Password" required>
+	<label class="checkbox">
+		<input type="checkbox" value="remember-me">
+		Запомнить меня
+	</label>
+	<button class="btn btn-primary" type="submit">Войти</button>
+</form>
