@@ -179,7 +179,7 @@
 		protected function showPage($path, $data = array()) {
 
 			$current     = ((!empty($data[ 'current_page' ])) ? $data[ 'current_page' ] : '');
-			$notShowNews = ((!empty($data[ 'notShowNews' ]))  ? $data[ 'notShowNews' ]  : true);
+			$notShowNews = ((isset($data[ 'notShowNews' ]))  ? $data[ 'notShowNews' ]  : true);
 			
 			if (!empty($data[ 'current_page' ])) {
 				
@@ -189,7 +189,7 @@
 			View::set_global('TMP_PATH', self::TMP_PATH);
 			
 			// Widgets section
-			$this -> template -> set('topMenu',  Request::factory('widget/topmenu/show/main') -> execute());
+			$this -> template -> set('topMenu',  Request::factory('widget/topmenu/show/' . $current) -> execute());
 			$this -> template -> set('leftMenu', Request::factory('widget/leftmenu') -> execute());
 			$this -> template -> set('login',    Request::factory('widget/login') -> execute());
 			$this -> template -> set('news',     Request::factory('widget/news') -> execute());

@@ -9,14 +9,13 @@
         <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
 
         <!-- System -->
-        <meta name="author" content="<?php echo __(Config::getSiteParam('site_developer')); ?>" />
+        <meta name="author"      content="<?php echo Config::getSiteParam('site_developer');  ?>" />
         <meta name="description" content="<?php echo isset($description) ? $description : ''; ?>" />
-        <meta name="keywords" content="<?php echo isset($keywords) ? $keywords : ''; ?>" />
-		
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords"    content="<?php echo isset($keywords)    ? $keywords    : ''; ?>" />
+        <meta name="viewport"    content="width=device-width, initial-scale=1.0" />
 		
 		<!-- Twitter Bootstrap -->
-        <link href="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/bootstrap/css/bootstrap.min.css"       type="text/css" rel="stylesheet" media="all" />
         <link href="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet" media="all" />
 		
 		<?php if (!empty($styles)) : ?>
@@ -35,7 +34,6 @@
             <script type="text/javascript" src="html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-
     <body>
 	
 		<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -45,12 +43,8 @@
 						<div id="site-logo-wrap">
 							<img src="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/images/logo.png"/>
 						</div>
-						<h1>
-							<?php echo __(Config::getSiteParam('site_name')) ?>
-						</h1>	
-						<h2>	
-							<?php echo __(Config::getSiteParam('site_descr')) ?>
-						</h2>	
+						<h1><?php echo Config::getSiteParam('site_name');  ?></h1>	
+						<h2><?php echo Config::getSiteParam('site_descr'); ?></h2>	
 						<div class="clearfix"></div>
 					</a>
 					<div class="clearfix"></div>

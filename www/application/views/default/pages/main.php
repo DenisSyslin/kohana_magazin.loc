@@ -20,8 +20,11 @@
 	<?php if (!empty($topProducts)) : ?>
 		<?php foreach ($topProducts as $product) : ?>
 			<div class="top-product-block col-lg-3">
-				<img src="<?php echo URL::site('/asserts/uploads/books/' . $product[ 'img' ]); ?>" alt=""/>
-				<h5><?php echo $product[ 'name' ]; ?></h5>	
+				<img src="<?php echo URL::site('/asserts/uploads/books/' . $product[ 'img' ]); ?>" alt="<?php echo $product[ 'name' ]; ?>"/>
+				<h5>
+					<strong><?php echo $product[ 'author' ]; ?></strong> 
+					- <?php echo $product[ 'name' ]; ?>
+				</h5>	
 			</div>
 		<?php endforeach; ?>
 	<?php endif; ?>

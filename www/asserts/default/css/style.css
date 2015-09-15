@@ -83,23 +83,31 @@ a.navbar-brand {
 	min-height: 560px;
 	padding: 10px 	
 }
-.item-xs-3 {
-	margin: 1%;
-	padding: 1%;
-	float: left;
-	width: 23%;
-}
 aside.col-lg-2 {
 	min-height: 560px;
-	background: #ccc;
 }
 aside h4 {
 	margin-top: 20px;
 } 
 
 .catalog .item {
-	min-height: 100px;
-	background: #ccc;
+    min-height: 100px;
+    margin-bottom: 10px;
+    border-bottom: 1px outset #ccc;
+    padding-bottom: 10px;
+}
+.catalog .item .image-wrap {
+	float: left;
+    margin-right: 2%;
+    width: 10%;
+}
+.catalog .item .desc-wrap {
+	float: left;
+	width: 65%;
+}
+.catalog .item .price-wrap {
+	float: right;
+	width: 12%;
 }
 .news-block {
 	margin-bottom: 20px;

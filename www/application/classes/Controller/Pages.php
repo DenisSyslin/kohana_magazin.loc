@@ -44,6 +44,7 @@
 			
 			$data = array();
 			$data[ 'current_page' ] = 'main';
+			$data[ 'notShowNews' ]  = false;
 			$data[ 'topProducts' ]  = $this -> products -> topProducts(9);
 		
 			$this -> setParam('pagetitle', 'Главная');

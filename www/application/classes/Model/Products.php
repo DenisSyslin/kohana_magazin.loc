@@ -10,6 +10,13 @@
 	 */
 	 
 	class Model_Products extends Model_Layout_CRUD {
+	
+		/**
+		 * Table name
+		 * @property string
+		 * @access protected
+		 */
+		protected $_table_name = 'products';
 		
 		/**
 		 * Получить категории товаров
@@ -75,12 +82,20 @@
 		 */
 		public function getCatalog($count = 10) {
 			
-			return array(
-				array('name' => 'PHP. Сборник рецептов',      'price' => 100),
-				array('name' => 'Язык программирования Java', 'price' => 200),
-				array('name' => 'Совершенный код',            'price' => 300),
-				array('name' => 'Web-сервер глазами хакера',  'price' => 400),
-			);
+			$this -> columns = array('isbn', 'author', 'title', 'catid', 'price', 'desc', 'year');
+			
+			$query = DB::select_array($this -> columns)
+				-> from($this -> _table_name)
+				-> limit($count)
+				-> order_by('title', 'DESC')
+				-> execute();
+			
+			if (count($query)) {
+			
+				return $query -> as_array();
+			}
+			
+			return FALSE;
 		}
 	} 
 

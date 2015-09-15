@@ -10,15 +10,16 @@
 	 */
 	 
 	class Controller_Widget_News extends Controller_Template {
-		
+
+		/**
+		 * Шаблон для виджета
+		 */
 		public $template = 'default/widget/News';
 
 		/**
 		 * Отобразить виджет
 		 */
-		public function action_show() {
-
-		}
+		public function action_show() {}
 	} 
 
     /* End of file News.php */

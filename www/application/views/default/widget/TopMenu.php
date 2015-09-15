@@ -4,14 +4,14 @@
 		<li <?php if ($current == 'main') : ?>class="active"<?php endif; ?>>
 			<a href="<?php echo URL::site('/') ?>">Главная</a>&nbsp;|&nbsp;
 		</li>
-		<li <?php if ($current == 'articles') : ?>class="active"<?php endif; ?>>
-			<a href="<?php echo URL::site('/articles') ?>">Каталог</a>&nbsp;|&nbsp;
+		<li <?php if ($current == 'catalog') : ?>class="active"<?php endif; ?>>
+			<a href="<?php echo URL::site('/pages/catalog') ?>">Каталог</a>&nbsp;|&nbsp;
 		</li>
-		<li <?php if ($current == 'news') : ?>class="active"<?php endif; ?>>
-			<a href="<?php echo URL::site('/news') ?>">Способ оплаты</a>&nbsp;|&nbsp;
+		<li <?php if ($current == 'payment') : ?>class="active"<?php endif; ?>>
+			<a href="<?php echo URL::site('/pages/payment') ?>">Способ оплаты</a>&nbsp;|&nbsp;
 		</li>
-		<li <?php if ($current == 'help') : ?>class="active"<?php endif; ?>>
-			<a href="<?php echo URL::site('/pages/help') ?>">Доставка</a>&nbsp;|&nbsp;
+		<li <?php if ($current == 'delivery') : ?>class="active"<?php endif; ?>>
+			<a href="<?php echo URL::site('/pages/delivery') ?>">Доставка</a>&nbsp;|&nbsp;
 		</li>
 		<li <?php if ($current == 'about') : ?>class="active"<?php endif; ?>>
 			<a href="<?php echo URL::site('/pages/about') ?>">Контакты</a>
