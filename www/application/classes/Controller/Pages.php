@@ -41,13 +41,12 @@
 		public function action_index() {
 		
 			$this -> products = Model::factory('Products');
-			
+
 			$data = array();
-			$data[ 'current_page' ] = 'main';
-			$data[ 'notShowNews' ]  = false;
-			$data[ 'topProducts' ]  = $this -> products -> topProducts(9);
+			$data[ 'notShowNews' ] = false;
+			$data[ 'topProducts' ] = $this -> products -> topProducts(9);
 		
-			$this -> setParam('pagetitle', 'Главная');
+			$this -> setParam('pagetitle', Kohana::$config -> load('config') -> get('main_page_title'));
 			$this -> showPage($this -> cName . 's/main', $data);	
 		}
 		
@@ -59,7 +58,6 @@
 			$this -> products = Model::factory('Products');
 		
 			$data = array();
-			$data[ 'current_page' ] = 'catalog';
 			$data[ 'products' ] = $this -> products -> getCatalog(8);
 		
 			$this -> setParam('pagetitle', 'Каталог');

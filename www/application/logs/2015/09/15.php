@@ -16,3 +16,9 @@
 #12 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #13 Z:\home\kohana_magazin.loc\www\index.php(118): Kohana_Request->execute()
 #14 {main} in Z:\home\kohana_magazin.loc\www\application\views\default\pages\catalog.php:5
+2015-09-15 12:57:34 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected ')' ~ APPPATH\classes\Controller\Layout\Default.php [ 197 ] in file:line
+2015-09-15 12:57:34 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-09-15 13:55:22 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method Response::execute() ~ APPPATH\classes\Controller\Layout\Default.php [ 98 ] in file:line
+2015-09-15 13:55:22 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

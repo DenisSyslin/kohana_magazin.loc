@@ -20,39 +20,43 @@
 	 
 		/**
 		 * Default layout template
-		 *
-		 * @property View
+		 * @property string
 		 * @access public
 		 */
 		public $template = 'default/base/layout';
+	 
+		/**
+		 * Default widget path
+		 * @property string
+		 * @access public
+		 */
+		public $widgetPath = 'widget';
 		
 		/**
 		 * Массив стилевых таблиц для базового шаблона
+		 * @property array
 		 * @access protected
-		 * @variable array
 		 */
 		protected $styles = array();
 		
 		/**
 		 * Массив скриптов для базового шаблона
+		 * @property array
 		 * @access protected
-		 * @variable array
 		 */
 		protected $scripts = array();
 	 
 		/**
 		 * Auto loading configs groups
-		 *
 		 * @property array
 		 * @access public
 		 */
 		public $config_groups = array(
-			'blog',
+			'config',
 		);
 	 
 		/**
 		 * Auto loaded configs
-		 *
 		 * @property array (group => params)
 		 * @access public
 		 */
@@ -60,7 +64,6 @@
 	 
 		/**
 		 * Global variables
-		 *
 		 * @property array
 		 * @access private
 		 */
@@ -73,17 +76,40 @@
 		
 			parent::before();
 	 
-			// load configs
+			// Load configs
 			foreach ($this -> config_groups as $group) {
 			
 				$this -> config[ $group ] = Kohana::$config -> load($group) -> as_array();
 			}
 	 
-			// bind this value as global for all templates
+			// Config for all templates
 			View::set_global('config', $this -> config);
 	 
-			// bind as global value session message if exists
+			// Session message if exists
 			View::set_global('message', Session::instance() -> get_once('message'));
+
+			// Default template path
+			View::set_global('TMP_PATH', self::TMP_PATH);
+				
+			// Current page		
+			$current = Request::initial() -> action();
+			
+			// Widgets section
+			$this -> template -> set('topMenu',  $this -> widgetLoad('topmenu/show/'  . $current));
+			$this -> template -> set('leftMenu', $this -> widgetLoad('leftmenu/show/' . $current));
+			
+			$this -> template -> set('login', $this -> widgetLoad('login'));
+			$this -> template -> set('news',  $this -> widgetLoad('news'));
+		}
+		
+		/**
+		 * Метод загрузки виджета
+		 *
+		 * @param string $path имя виджета или путь с параметрами 
+		 */
+		protected function widgetLoad($path) {
+			
+			return Request::factory($this -> widgetPath . '/' . $path) -> execute();
 		}
 				
 		/**
@@ -141,8 +167,8 @@
 			}
 		
 			$this -> scripts[] = array(
-				'file'   => $file,
-				'isUrl'  => ($isUrl)
+				'file'  => $file,
+				'isUrl' => ($isUrl)
 			);
 		}
 		
@@ -177,28 +203,13 @@
 		 * @param array  $data данные для шаблона
 		 */
 		protected function showPage($path, $data = array()) {
-
-			$current     = ((!empty($data[ 'current_page' ])) ? $data[ 'current_page' ] : '');
-			$notShowNews = ((isset($data[ 'notShowNews' ]))  ? $data[ 'notShowNews' ]  : true);
-			
-			if (!empty($data[ 'current_page' ])) {
-				
-				$current = $data[ 'current_page' ];
-			}
-						
-			View::set_global('TMP_PATH', self::TMP_PATH);
-			
-			// Widgets section
-			$this -> template -> set('topMenu',  Request::factory('widget/topmenu/show/' . $current) -> execute());
-			$this -> template -> set('leftMenu', Request::factory('widget/leftmenu') -> execute());
-			$this -> template -> set('login',    Request::factory('widget/login') -> execute());
-			$this -> template -> set('news',     Request::factory('widget/news') -> execute());
 			
 			$this -> template -> set('content', View::factory(self::TMP_PATH . '/' . $path, $data));
 			
 			$this -> template -> set('scripts', $this -> scripts);
 			$this -> template -> set('styles',  $this -> styles);
-			$this -> template -> set('notShowNews', $notShowNews);
+			
+			$this -> template -> set('notShowNews', ((isset($data[ 'notShowNews' ])) ? $data[ 'notShowNews' ]  : true));
 		}
 	} 
 

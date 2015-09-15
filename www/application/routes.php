@@ -7,13 +7,14 @@
 			'action'     => 'index',
 		));
 
-	Route::set('widget-topmenu', 'widget/topmenu/show(/<current>)', array('current' => '[\d\w\-\_]+',))
+	Route::set('widget-menu', 'widget/<controller>/show(/<current>)', array('controller' => 'topmenu|leftmenu', 'current' => '[\d\w\-\_]+',))
 		 -> defaults(array(
 			'directory'  => 'widget',
 			'controller' => 'TopMenu',
 			'action'     => 'show',
 		));
-		
+
+
 	Route::set('widget-default', 'widget(/<controller>(/<action>(/<id>)))')
 		 -> defaults(array(
 			'directory'  => 'widget',
