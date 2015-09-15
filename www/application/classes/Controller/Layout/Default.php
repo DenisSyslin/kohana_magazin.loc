@@ -147,7 +147,7 @@
 		}
 		
 		/**
-		 * Отобразить пользовательскую страницу 
+		 * Установить параметры страницы 
 		 *
 		 * @param array  $data пераметры страницы
 		 * @param string $path путь к шаблону 
@@ -178,7 +178,8 @@
 		 */
 		protected function showPage($path, $data = array()) {
 
-			$current = '';
+			$current     = ((!empty($data[ 'current_page' ])) ? $data[ 'current_page' ] : '');
+			$notShowNews = ((!empty($data[ 'notShowNews' ]))  ? $data[ 'notShowNews' ]  : true);
 			
 			if (!empty($data[ 'current_page' ])) {
 				
@@ -187,17 +188,17 @@
 						
 			View::set_global('TMP_PATH', self::TMP_PATH);
 			
-			$content = View::factory(self::TMP_PATH . '/' . $path, $data);
-			$footer  = View::factory(self::TMP_PATH . '/block/footer');
-			
+			// Widgets section
 			$this -> template -> set('topMenu',  Request::factory('widget/topmenu/show/main') -> execute());
 			$this -> template -> set('leftMenu', Request::factory('widget/leftmenu') -> execute());
+			$this -> template -> set('login',    Request::factory('widget/login') -> execute());
 			$this -> template -> set('news',     Request::factory('widget/news') -> execute());
-
-			$this -> template -> set('footer',  $footer);
-			$this -> template -> set('content', $content);
+			
+			$this -> template -> set('content', View::factory(self::TMP_PATH . '/' . $path, $data));
+			
 			$this -> template -> set('scripts', $this -> scripts);
 			$this -> template -> set('styles',  $this -> styles);
+			$this -> template -> set('notShowNews', $notShowNews);
 		}
 	} 
 

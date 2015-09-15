@@ -9,6 +9,7 @@ body {
 }
 .not-styled-list {
 	list-style: none;
+	padding-left: 0;
 }
 .navbar {
 	position: static !important;
@@ -75,10 +76,6 @@ a.navbar-brand {
 .main-container {
 	width: 100% !important;
 }
-aside.col-lg-2 {
-	min-height: 560px;
-	background: #ccc;
-}
 .main-row {
 	margin-top: 24px;
 }
@@ -92,6 +89,13 @@ aside.col-lg-2 {
 	float: left;
 	width: 23%;
 }
+aside.col-lg-2 {
+	min-height: 560px;
+	background: #ccc;
+}
+aside h4 {
+	margin-top: 20px;
+} 
 
 .catalog .item {
 	min-height: 100px;
@@ -109,6 +113,13 @@ aside.col-lg-2 {
 }
 .news-block a.read-more {
 	
+}
+.top-product-block.col-lg-3  {
+	text-align: center;	
+	width: 32%;
+}
+.top-product-block img {
+	border: 1px solid;
 }
 footer {
     background-color: #222;

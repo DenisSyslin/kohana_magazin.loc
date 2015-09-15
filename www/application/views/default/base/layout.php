@@ -60,7 +60,7 @@
 						<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Корзина
 					</button>
 				</div>
-				<?php echo isset($topMenu) ? $topMenu : '' ?>
+				<?php echo ((empty($notShowTopMenu)) ? $topMenu : ''); ?>
 				<div class="clearfix"></div>
 			</section>
 		</header>
@@ -68,19 +68,29 @@
 		<section class="main-container container">
 			<div class="row">
 				<aside class="col-lg-2 aside-left">
-					<?php echo $leftMenu; ?>
+					<?php echo ((empty($notShowLeftMenu)) ? $leftMenu : ''); ?>
+					<?php echo ((empty($notShowLogin))    ? $login    : ''); ?>
 				</aside>
-				<div class="main-content col-lg-8">
+				<div class="main-content <?php echo ((empty($notShowNews)) ? 'col-lg-8' : 'col-lg-10'); ?>">
 					<?php echo isset($content) ? $content : '' ?>
-				</div>
-				<aside class="col-lg-2 aside-right">
-					<?php echo $news; ?>
-				</aside>
+				</div>				
+				<?php echo ((empty($notShowNews)) ? $news : ''); ?>
 			</div>
 		</section> 
 
-		<?php echo isset($footer) ? $footer : '' ?>
-
+		<footer>
+			<div class="container">
+				<p class="text-muted">
+				<?php echo __('&copy; :date Developer: :developer', array(
+							':date' => Date::formatted_time('now', 'Y'),
+							':developer' => Config::getSiteParam('site_developer')
+						)
+					); 
+				?>
+				</p>
+			</div>
+		</footer>
+		
         <!-- JS Code -->
         <script type="text/javascript" src="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="/asserts/<?php echo Config::getSiteParam('site_template'); ?>/bootstrap/js/bootstrap.min.js"></script>

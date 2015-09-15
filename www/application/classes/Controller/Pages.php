@@ -40,8 +40,11 @@
 		 */
 		public function action_index() {
 		
+			$this -> products = Model::factory('Products');
+			
 			$data = array();
 			$data[ 'current_page' ] = 'main';
+			$data[ 'topProducts' ]  = $this -> products -> topProducts(9);
 		
 			$this -> setParam('pagetitle', 'Главная');
 			$this -> showPage($this -> cName . 's/main', $data);	
