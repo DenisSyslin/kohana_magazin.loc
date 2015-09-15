@@ -13,8 +13,8 @@
 		<li <?php if ($current == 'delivery') : ?>class="active"<?php endif; ?>>
 			<a href="<?php echo URL::site('/pages/delivery') ?>">Доставка</a>&nbsp;|&nbsp;
 		</li>
-		<li <?php if ($current == 'about') : ?>class="active"<?php endif; ?>>
-			<a href="<?php echo URL::site('/pages/about') ?>">Контакты</a>
+		<li <?php if ($current == 'contacts') : ?>class="active"<?php endif; ?>>
+			<a href="<?php echo URL::site('/pages/contacts') ?>">Контакты</a>
 		</li>
 	</ul>
 </nav>

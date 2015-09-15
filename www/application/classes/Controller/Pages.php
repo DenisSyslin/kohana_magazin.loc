@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 	/**
-	 * Контроллер по умолчанию
+	 * Контроллер для работы со страницами сайта
 	 *
 	 * @name        Controller_Pages
 	 * @category    Classes
@@ -62,6 +62,39 @@
 		
 			$this -> setParam('pagetitle', 'Каталог');
 			$this -> showPage($this -> cName . 's/catalog', $data);	
+		}
+		
+		/**
+		 * Способы оплаты
+		 */
+		public function action_payment() {
+				
+			$data = array();
+		
+			$this -> setParam('pagetitle', 'Способы оплаты');
+			$this -> showPage($this -> cName . 's/payment', $data);	
+		}
+		
+		/**
+		 * Доставка
+		 */
+		public function action_delivery() {
+		
+			$data = array();
+		
+			$this -> setParam('pagetitle', 'Доставка');
+			$this -> showPage($this -> cName . 's/delivery', $data);	
+		}
+		
+		/**
+		 * Контакты
+		 */
+		public function action_contacts() {
+		
+			$data = array();
+		
+			$this -> setParam('pagetitle', 'Контакты');
+			$this -> showPage($this -> cName . 's/contacts', $data);	
 		}
 	} 
 
