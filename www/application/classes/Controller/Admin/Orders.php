@@ -16,7 +16,7 @@
 		 * @access protected
 		 * @property string
 		 */
-		protected $cName = 'orders';
+		protected $cName = 'order';
 	 	
 		/**
 		 * Конструктор
@@ -29,39 +29,43 @@
 		}
 		
 		/**
-		 * Список страниц
+		 * Список заказов
 		 */
 		public function action_index() {
 			
-			$this -> grudIndex('Список страниц');
+			$data = array();
+			
+			$this -> setParam('pagetitle', 'Список заказов');
+			
+			$this -> showAdmin($this -> cName . 's/list', $data);	
 		}
 		
 		/**
-		 * Добавить страницу
+		 * Новый заказ
 		 */
 		public function action_new() {
 			
-			$this -> grudNew('Добавить страницу');
+			$this -> grudNew('Новый заказ');
 		}
  
 		/**
-		 * Редактировать страницу 
+		 * Редактировать заказ 
 		 */
 		public function action_edit() {
 			
-			$this -> grudEdit('Редактировать страницу');
+			$this -> grudEdit('Редактировать заказ');
 		}
 	 
 		/**
-		 * Сохранить страницу
+		 * Сохранить заказ
 		 */
 		public function action_save() {
 		
-			$this -> grudSave('Сохранить страницу');
+			$this -> grudSave('Сохранить заказ');
 		}
 		
 		/**
-		 * Удалить страницу
+		 * Удалить заказ
 		 */
 		public function action_delete() {
 		

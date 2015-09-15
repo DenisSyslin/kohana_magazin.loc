@@ -70,3 +70,15 @@
 #8 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #9 Z:\home\kohana_magazin.loc\www\index.php(118): Kohana_Request->execute()
 #10 {main} in Z:\home\kohana_magazin.loc\www\modules\database\classes\Kohana\Database\Query.php:251
+2015-09-15 17:05:13 --- CRITICAL: View_Exception [ 0 ]: The requested view default/admin/orderss/list could not be found ~ SYSPATH\classes\Kohana\View.php [ 265 ] in Z:\home\kohana_magazin.loc\www\system\classes\Kohana\View.php:145
+2015-09-15 17:05:13 --- DEBUG: #0 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\View.php(145): Kohana_View->set_filename('default/admin/o...')
+#1 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\View.php(30): Kohana_View->__construct('default/admin/o...', Array)
+#2 Z:\home\kohana_magazin.loc\www\application\classes\Controller\Admin\Layout\Secure.php(54): Kohana_View::factory('default/admin/o...', Array)
+#3 Z:\home\kohana_magazin.loc\www\application\classes\Controller\Admin\Orders.php(40): Controller_Admin_Layout_Secure->showAdmin('orderss/list', Array)
+#4 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Controller.php(84): Controller_Admin_Orders->action_index()
+#5 [internal function]: Kohana_Controller->execute()
+#6 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Admin_Orders))
+#7 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 Z:\home\kohana_magazin.loc\www\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#9 Z:\home\kohana_magazin.loc\www\index.php(118): Kohana_Request->execute()
+#10 {main} in Z:\home\kohana_magazin.loc\www\system\classes\Kohana\View.php:145
